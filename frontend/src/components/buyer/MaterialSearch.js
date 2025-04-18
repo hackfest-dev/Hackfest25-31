@@ -25,7 +25,8 @@ export default function MaterialSearch() {
       body: JSON.stringify({ query, materials })
     });
     const data = await response.json();
-    setResults(data);
+    const filteredResults = data.filter(mat => mat.match_score > 0);
+    setResults(filteredResults);
   };
 
   return (
@@ -36,7 +37,7 @@ export default function MaterialSearch() {
 
       {results.map((mat, idx) => (
         <div key={idx}>
-          <h4>{mat.name} - {mat.match_score}% Match</h4>
+          <h4>{mat.name}</h4>
           <p>{mat.description}</p>
         </div>
       ))}

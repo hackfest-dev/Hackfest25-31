@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './App.css'; // Ensure this import is present
+import './App.css'; 
 
 const HomePage = () => {
   return (
     <div className="homepage-container">
-      <h1 className="title">Welcome to Whimsical Pirates</h1>
+      <h1 className="title">Welcome!</h1>
       <div className="card-container">
         <div className="card">
           <h2>Buyer</h2>
