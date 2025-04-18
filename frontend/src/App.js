@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import BuyerSignup from './components/auth/Buyersignup';
-import BuyerLogin from './components/auth/Buyerlogin';
+import BuyerSignup from './components/auth/buyersignup';
+import BuyerLogin from './components/auth/buyerlogin';
 import SellerSignup from './components/auth/SellerSignup';
 import SellerLogin from './components/auth/SellerLogin';
 import DeliverySignup from './components/auth/DeliverySignup';
