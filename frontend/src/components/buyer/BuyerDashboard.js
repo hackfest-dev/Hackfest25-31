@@ -1,10 +1,10 @@
-import React from 'react';
+import AllMaterials from './AllMaterials';
 
-export default function BuyerHome() {
+export default function BuyerDashboard() {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Welcome Buyer!</h1>
-      <p>Search and explore industrial materials, connect with sellers, and track your shipments.</p>
+    <div>
+      <h1>Buyer Portal</h1>
+      <AllMaterials />
     </div>
   );
 }

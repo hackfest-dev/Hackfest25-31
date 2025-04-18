@@ -10,22 +10,28 @@ export default function AllMaterials() {
     onValue(matRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const arr = Object.entries(data).map(([id, val]) => ({ id, ...val })).sort((a, b) => b.timestamp - a.timestamp); 
-        setMaterials(arr);
+        // Convert object to an array of materials
+        setMaterials(Object.values(data));
+      } else {
+        setMaterials([]); // Set empty array if no data
       }
     });
   }, []);
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2>🛒 All Available Materials</h2>
-      {materials.map((mat, idx) => (
-        <div key={idx}>
-          <h4>{mat.name}</h4>
-          <p>{mat.description}</p>
-          <p>Quantity: {mat.quantity}</p>
-        </div>
-      ))}
+      <h2>All Available Materials</h2>
+      {materials.length > 0 ? (
+        materials.map((mat, idx) => (
+          <div key={idx}>
+            <h4>{mat.name}</h4>
+            <p>{mat.description}</p>
+            <p>Quantity: {mat.quantity}</p>
+          </div>
+        ))
+      ) : (
+        <p>No materials available.</p>
+      )}
     </div>
   );
 }
