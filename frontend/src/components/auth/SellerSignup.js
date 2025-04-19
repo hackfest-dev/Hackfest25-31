@@ -29,7 +29,7 @@ export default function SellerSignup() {
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSignup}>
-        <h2>Seller Signup</h2>
+        <h2>SELLER SIGNUP</h2>
         <input
           type="email"
           value={email}

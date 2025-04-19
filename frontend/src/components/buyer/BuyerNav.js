@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './BuyerStyles.css';
+import LogoutButton from '../auth/LogoutButton';
 
 export default function BuyerNav() {
   const location = useLocation();
@@ -15,17 +16,22 @@ export default function BuyerNav() {
 
   return (
     <nav className="buyer-horizontal-nav">
-      {navLinks.map((link) => (
-        <Link
-          key={link.to}
-          to={link.to}
-          className={`buyer-nav-link ${
-            location.pathname === link.to ? 'active' : ''
-          }`}
-        >
-          {link.label}
-        </Link>
-      ))}
+      <div className="nav-links-container">
+        {navLinks.map((link) => (
+          <Link
+            key={link.to}
+            to={link.to}
+            className={`buyer-nav-link ${
+              location.pathname === link.to ? 'active' : ''
+            }`}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+      <div className="logout-button-container">
+        <LogoutButton />
+      </div>
     </nav>
   );
 }

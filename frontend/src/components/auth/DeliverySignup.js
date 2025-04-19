@@ -29,7 +29,7 @@ export default function DeliverySignup() {
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSignup}>
-        <h2>Delivery Signup</h2>
+        <h2>DELIVERY SIGNUP</h2>
         <input
           type="email"
           value={email}

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RecentConversations from '../common/RecentConversations';
 import LogoutButton from '../auth/LogoutButton';
-import { db, auth } from '../../firebase';
+import { db } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
-import './BuyerStyles.css'
+import './BuyerStyles.css';
+
 const BuyerHome = () => {
   const navigate = useNavigate();
   const [materials, setMaterials] = useState([]);
@@ -25,26 +26,40 @@ const BuyerHome = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Welcome, Buyer 🛒</h2>
+    <div className="buyer-home-container">
+      <h2 className="buyer-home-title">Welcome, Buyer</h2>
 
       {/* Available Materials Section */}
-      <div style={{ margin: '20px 0' }}>
-        <h3>Available Materials</h3>
+      <div className="material-section">
+        <h3 className="section-heading">Available Materials</h3>
         {materials.map((material) => (
-          <div key={material.id} style={{ border: '1px solid gray', padding: '10px', margin: '10px 0' }}>
+          <div key={material.id} className="material-card">
             <h4>{material.name}</h4>
             <p>{material.description}</p>
             <p>Quantity: {material.quantity}</p>
-            <button onClick={() => navigate(`/buyer/chat/${material.seller_id}`)}> Chat with Seller</button>
-            <button onClick={() => handlePlaceOrder(material)}> Place Order</button>
+            <div className="material-btn-group">
+              <button
+                className="btn secondary"
+                onClick={() => navigate(`/buyer/chat/${material.seller_id}`)}
+              >
+                Chat with Seller
+              </button>
+              <button
+                className="btn primary"
+                onClick={() => handlePlaceOrder(material)}
+              >
+                Place Order
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
       {/* Quick Access Buttons */}
-      <div style={{ display: 'flex', gap: '10px', margin: '10px 0' }}>
-        <button onClick={() => navigate("/buyer/orders")}> My Orders</button>
+      <div className="quick-actions">
+        <button className="btn tertiary" onClick={() => navigate("/buyer/orders")}>
+          My Orders
+        </button>
       </div>
 
       <RecentConversations userRole="buyer" />

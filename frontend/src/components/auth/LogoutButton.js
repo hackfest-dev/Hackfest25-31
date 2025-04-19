@@ -9,14 +9,26 @@ const LogoutButton = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      navigate('/'); 
+      navigate('/'); // Redirect to home or login after logout
     } catch (error) {
-      console.error("Logout failed:", error);
+      console.error('Logout failed:', error);
     }
   };
 
   return (
-    <button onClick={handleLogout} style={{ marginTop: '20px' }}>
+    <button
+      onClick={handleLogout}
+      style={{
+        marginTop: '20px',
+        padding: '10px 20px',
+        backgroundColor: '#ff4d4f',
+        color: '#fff',
+        border: 'none',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+      }}
+    >
       Logout
     </button>
   );

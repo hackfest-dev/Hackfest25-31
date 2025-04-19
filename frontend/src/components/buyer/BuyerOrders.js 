@@ -1,0 +1,48 @@
+import React, { useEffect, useState } from 'react';
+import { db, auth } from '../../firebase';
+import { ref as dbRef, get } from 'firebase/database';
+
+const BuyerOrders = () => {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const fetchBuyerOrders = async () => {
+      if (!auth.currentUser) return;
+
+      try {
+        const snapshot = await get(dbRef(db, 'deliveries'));
+        if (snapshot.exists()) {
+          const allOrders = snapshot.val();
+          const buyerOrders = Object.entries(allOrders)
+            .filter(([id, order]) => order.buyer_id === auth.currentUser.uid)
+            .map(([id, order]) => ({ id, ...order }));
+
+          setOrders(buyerOrders);
+        }
+      } catch (error) {
+        console.error("Error fetching buyer orders:", error);
+      }
+    };
+
+    fetchBuyerOrders();
+  }, []);
+
+  return (
+    <div>
+      <h2>My Orders</h2>
+      {orders.length > 0 ? (
+        orders.map(order => (
+          <div key={order.id}>
+            <h4>{order.material_name}</h4>
+            <p>Quantity: {order.quantity}</p>
+            <p>Status: {order.status}</p>
+          </div>
+        ))
+      ) : (
+        <p>No orders found.</p>
+      )}
+    </div>
+  );
+};
+
+export default BuyerOrders;

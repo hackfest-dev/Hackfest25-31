@@ -26,7 +26,7 @@ export default function DeliveryLogin() {
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleLogin}>
-        <h2>Delivery Login</h2>
+        <h2>DELIVERY LOGIN</h2>
         <input
           type="email"
           value={email}

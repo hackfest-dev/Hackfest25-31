@@ -26,7 +26,7 @@ export default function SellerLogin() {
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleLogin}>
-        <h2>Seller Login</h2>
+        <h2>SELLER LOGIN</h2>
         <input
           type="email"
           value={email}

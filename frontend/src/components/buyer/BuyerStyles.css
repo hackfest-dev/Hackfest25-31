@@ -1,11 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+/* Reset + Font */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f8fe;
+}
+
+/* Navigation */
 .buyer-horizontal-nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f8ff; /* Light Blue */
+    background-color: #f0f8ff;
     padding: 1rem 2rem;
     gap: 2rem;
-    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.15); /* Primary Blue shadow */
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -14,7 +27,7 @@
 .buyer-nav-link {
     text-decoration: none;
     font-weight: 500;
-    color: #2c6aa0; /* Secondary Blue */
+    color: #2c6aa0;
     font-size: 1.1rem;
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -22,14 +35,115 @@
 }
 
 .buyer-nav-link:hover {
-    background-color: #4a90e2; /* Primary Blue */
+    background-color: #4a90e2;
     color: #ffffff;
 }
 
 .buyer-nav-link.active {
-    background-color: #357abd; /* Dark Blue */
+    background-color: #357abd;
     color: #ffffff;
 }
+
+
+/* Remove gradient background and apply solid color */
+body {
+    background-color: #f5f7fa; /* Light greyish background */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* MaterialSearch - Search Bar and Button */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.search-input {
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 1px solid #5b82f0;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #375ac3;
+    box-shadow: 0 0 10px rgba(55, 90, 195, 0.5);
+}
+
+.search-button {
+    padding: 0.8rem 2rem;
+    background-color: #5b82f0;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    max-width: 200px;
+    align-self: flex-start;
+}
+
+.search-button:hover {
+    background-color: #375ac3;
+    transform: scale(1.05);
+}
+
+.material-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    border-left: 5px solid #5b82f0;
+}
+
+.material-btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.material-btn-group button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.material-btn-group button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.material-btn-group .btn-chat {
+    background-color: #7ab8e7;
+    color: white;
+}
+
+.material-btn-group .btn-chat:hover {
+    background-color: #468ccf;
+}
+
+.material-btn-group .btn-order {
+    background-color: #5b82f0;
+    color: white;
+}
+
+.material-btn-group .btn-order:hover {
+    background-color: #375ac3;
+}
+
+
+/* Materials Section */
 .materials-container {
     padding: 2rem;
     background-color: #f8fbff;
@@ -81,6 +195,8 @@
     font-style: italic;
     color: #888;
 }
+
+/* Chat Page */
 .chat-page-container {
     padding: 2rem;
     background-color: #f8fbff;
@@ -104,11 +220,11 @@
     box-shadow: 0 4px 12px rgba(74, 144, 226, 0.15);
     border-left: 6px solid #4a90e2;
 }
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+/* Pretty Chat Styling */
 .pretty-chat-page {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #f0f4ff, #e0f7fa);
+    background: none;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -148,6 +264,7 @@
     transform: translateY(-5px);
 }
 
+/* Buyer Home */
 .buyer-home-container {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to right, #f5f7fa, #c3d8f1);
@@ -184,10 +301,6 @@
     border-left: 5px solid #5b82f0;
 }
 
-.material-card:hover {
-    transform: translateY(-4px);
-}
-
 .material-btn-group {
     display: flex;
     gap: 10px;
@@ -195,30 +308,34 @@
 }
 
 .btn {
-    padding: 0.5rem 1.2rem;
+    padding: 0.75rem 2rem;
     border: none;
     border-radius: 8px;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    max-width: 250px;
 }
 
 .btn.primary {
-    background-color: #4e73df;
+    background-color: #5b82f0; /* Light Blue for Place Order */
     color: white;
 }
 
 .btn.primary:hover {
-    background-color: #375ac3;
+    background-color: #375ac3; /* Darker Blue on Hover */
+    transform: scale(1.05);
 }
 
 .btn.secondary {
-    background-color: #28a745;
+    background-color: #7ab8e7; /* Light Blue for Chat with Seller */
     color: white;
 }
 
 .btn.secondary:hover {
-    background-color: #218838;
+    background-color: #468ccf; /* Darker Blue on Hover */
+    transform: scale(1.05);
 }
 
 .btn.tertiary {
@@ -228,15 +345,19 @@
 
 .btn.tertiary:hover {
     background-color: #ec9c38;
+    transform: scale(1.05);
 }
 
 .quick-actions {
     margin-bottom: 2rem;
     text-align: center;
 }
+
+  
+/* Dashboard */
 .dashboard-container {
     padding: 2rem;
-    background: linear-gradient(to right, #f9fbfc, #dce8ff);
+    background: none;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
 }
@@ -247,85 +368,58 @@
     color: #2c3e50;
     margin-bottom: 2rem;
 }
-/* Container for the search section */
+
+/* Search Section */
 .search-container {
     padding: 2rem;
     background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
     font-family: 'Roboto', sans-serif;
     border-radius: 12px;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 3rem auto 0 auto;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  /* Title styling */
-  .search-title {
+}
+
+.search-title {
     text-align: center;
     font-size: 2.4rem;
     color: white;
     margin-bottom: 2rem;
     font-weight: 600;
     letter-spacing: 1px;
-  }
-  
-  /* Container for the search section */
-.search-container {
-    padding: 2rem;
-    background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
-    font-family: 'Roboto', sans-serif;
-    border-radius: 12px;
-    max-width: 900px;
-    margin: 0 auto;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Title styling */
-  .search-title {
-    text-align: center;
-    font-size: 2.4rem;
-    color: white;
-    margin-bottom: 2rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-  
-  /* Search input & button styling */
-  .search-input-container {
+}
+
+.search-input-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     max-width: 700px;
-    gap: 30px; /* Increased gap between input and button */
-    margin-bottom: 2rem; /* Adjusted bottom margin */
-  }
-  
-  .search-input {
+    gap: 30px;
+    margin-bottom: 2rem;
+}
+
+.search-input {
     padding: 1.2rem;
     font-size: 1.2rem;
     border-radius: 8px;
     border: 1px solid #ddd;
-    width: 75%; /* Input takes more space */
+    width: 75%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-  }
-  
-  .search-input:focus {
+}
+
+.search-input:focus {
     outline: none;
     border-color: #3f2b96;
     box-shadow: 0 5px 15px rgba(63, 43, 150, 0.3);
-  }
-  
-  .search-btn {
-    padding: 1.2rem 2.5rem; /* Button has more spacious padding */
+}
+
+.search-btn {
+    padding: 1.2rem 2.5rem;
     background-color: #3f2b96;
     border: none;
     border-radius: 8px;
@@ -333,168 +427,106 @@
     font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 25%; /* Set the width of the button */
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .search-btn:hover {
+}
+
+.search-btn:hover {
     background-color: #5e4b8b;
-  }
-  
-  /* Card for each material result */
-  .result-card {
+}
+
+.result-card {
     background-color: white;
     padding: 1.8rem;
     border-radius: 12px;
     margin-bottom: 2rem;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .result-card:hover {
-    transform: translateY(-10px);
-  }
-  
-  .result-header {
+    transition: transform 0.2s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-4px);
+}
+.buyer-horizontal-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
   }
   
-  .result-header h4 {
-    font-size: 1.6rem;
-    color: #3f2b96;
-    margin: 0;
+  .nav-links-container {
+    display: flex;
+    gap: 15px;
   }
   
-  .result-header span {
-    font-size: 1.2rem;
-    color: #8e44ad;
-    font-weight: 500;
+  .logout-button-container {
+    margin-left: auto;
+  }
+  /* Style for the search container */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
   }
   
-  .result-description {
-    margin: 12px 0;
-    color: #34495e;
-  }
-  
-  /* Button to chat with the seller */
-  .chat-btn {
-    padding: 1rem 1.8rem;
-    background-color: #2980b9;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    font-size: 1.1rem;
-    width: 100%;
-    transition: background-color 0.3s ease;
-  }
-  
-  .chat-btn:disabled {
-    background-color: #bdc3c7;
-    cursor: not-allowed;
-  }
-  
-  .chat-btn:hover:not(:disabled) {
-    background-color: #1f6fb2;
-  }
-  
-  /* Styling when no results found */
-  .no-results {
-    text-align: center;
-    font-size: 1.3rem;
-    color: #e74c3c;
-    margin-top: 2rem;
-    font-weight: 500;
-  }
-  .place-order-container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #f9fbfd;
-    border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .place-order-title {
-    font-size: 24px;
-    text-align: center;
-    color: #004080;
-    margin-bottom: 25px;
-  }
-  
-  .material-details {
-    margin-top: 20px;
-  }
-  
-  .material-name {
-    font-size: 20px;
-    font-weight: bold;
-    color: #222;
-  }
-  
-  .material-description {
-    font-size: 16px;
-    margin: 10px 0;
-    color: #555;
-  }
-  
-  .material-info {
-    font-size: 15px;
-    color: #444;
-    margin-bottom: 8px;
-  }
-  
-  .quantity-label {
-    display: block;
-    margin-top: 20px;
-    font-weight: bold;
-    color: #003366;
-  }
-  
-  .quantity-input {
-    width: 100%;
-    padding: 8px 12px;
-    margin-top: 5px;
-    border: 1px solid #aaa;
+  /* Style for the search input */
+  .search-input {
+    padding: 10px;
+    border: 2px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    width: 300px;
+    transition: border-color 0.3s ease;
   }
   
-  .order-button-container {
-    text-align: center;
-    margin-top: 25px;
+  .search-input:focus {
+    outline: none;
+    border-color: #4CAF50;
   }
   
-  .place-order-button {
-    background-color: #004080;
-    color: white;
-    padding: 10px 25px;
+/* Style for the search container */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the search input */
+  .search-input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
     font-size: 16px;
+    width: 300px;
+    background-color: #fff; /* Ensure background is white */
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+  /* Style for the search button */
+  .search-button {
+    padding: 10px 20px;
     border: none;
-    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
-  .place-order-button:hover {
-    background-color: #002f5d;
+  .search-button:hover {
+    background-color: #45a049;
   }
   
-  .error-text {
-    color: red;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  
-  .loading-text {
-    text-align: center;
-    font-size: 16px;
-    color: #666;
-  }
   

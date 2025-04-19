@@ -1,10 +1,4 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: url(../pages/back.png) no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+
 
 .welcome-container {
   min-height: 95vh;

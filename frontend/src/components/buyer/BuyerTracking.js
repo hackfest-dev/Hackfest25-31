@@ -1,10 +1,30 @@
-import './BuyerStyles.css'
-export default function BuyerTracking() {
-    return (
-      <div style={{ padding: '20px' }}>
-        <h2>Your Shipment Tracking</h2>
-        <p>Shipment info will show up here.</p>
-      </div>
-    );
-  }
-  
+import React, { useEffect, useState } from 'react';
+import { doc, onSnapshot } from 'firebase/firestore';
+import { db } from '../../firebase';
+
+// Add the status from Firestore to BuyerTracking.js
+const BuyerTracking = ({ orderId }) => {
+  const [order, setOrder] = useState(null);
+
+  useEffect(() => {
+    const orderRef = doc(db, 'orders', orderId); // Reference to Firestore order
+    const unsub = onSnapshot(orderRef, (snapshot) => {
+      if (snapshot.exists()) {
+        setOrder(snapshot.data());
+      }
+    });
+
+    return () => unsub();
+  }, [orderId]);
+
+  if (!order) return <p>Loading...</p>;
+
+  return (
+    <div>
+      <h2>Tracking Order #{orderId}</h2>
+      <p>Status: {order.status}</p>
+    </div>
+  );
+};
+
+export default BuyerTracking;

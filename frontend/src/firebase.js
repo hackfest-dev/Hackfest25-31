@@ -1,8 +1,11 @@
 // src/firebase.js
+
+import { getFirestore, collection } from "firebase/firestore"; 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyA73pXD6crheMQ6gx12zAy8UQAAfuBcXmA",
   authDomain: "whimsical-pirate.firebaseapp.com",
@@ -14,7 +17,20 @@ const firebaseConfig = {
   measurementId: "G-TSKEKJJJ33"
 };
 
+// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app);
-export const db = getDatabase(app);
+// Initialize Realtime Database
+const dbRealtime = getDatabase(app); // Realtime Database
+
+// Initialize Firestore (if you need Firestore as well)
+const dbFirestore = getFirestore(app); // Firestore
+
+// Initialize Firebase Authentication
+const auth = getAuth(app); // Firebase Authentication
+
+// Example of collection reference for Firestore
+const materialsRef = collection(dbFirestore, "materials"); 
+
+// Export initialized instances
+export { dbRealtime as db, dbFirestore, auth, materialsRef }; 
