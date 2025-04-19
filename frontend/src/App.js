@@ -9,6 +9,8 @@ import DeliverySignup from './components/auth/DeliverySignup';
 import DeliveryLogin from './components/auth/DeliveryLogin';
 
 import HomePage from './components/pages/HomePage';
+import Welcome from './components/pages/Welcome'; 
+
 
 import SellerNav from './components/seller/SellerNav';
 import SellerHome from './components/seller/SellerHome';
@@ -34,7 +36,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        {/* ✅ Welcome Page is now the landing page */}
+        <Route path="/" element={<Welcome />} />
+        {/* ✅ Login/Signup moved here */}
+        <Route path="/login" element={<HomePage />} />
+
         <Route path="/buyer/signup" element={<BuyerSignup />} />
         <Route path="/buyer/login" element={<BuyerLogin />} />
         <Route path="/seller/signup" element={<SellerSignup />} />
@@ -109,21 +115,23 @@ function App() {
             <DeliveryHome />
           </>
         } />
-        <Route path="/delivery/shipments" element={
-          <>
-            <DeliveryNav />
-            <DeliveryList />
-          </>
-        } />
-        <Route path="/delivery/chat" element={
-          <>
-            <DeliveryNav />
-            <DeliveryChat />
-          </>
-        } />
+       <Route path="/delivery/chat" element={
+  <>
+    <DeliveryNav />
+    <DeliveryChat />
+  </>
+} />
+
+{/* ✅ Welcome page is the landing route */}
+<Route path="/" element={<Welcome />} />
+
+{/* ✅ Login page route */}
+<Route path="/login" element={<HomePage />} />
+
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
