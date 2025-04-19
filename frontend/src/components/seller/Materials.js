@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { db } from '../../firebase';
+import { db, auth } from '../../firebase'; 
 import { ref, push } from 'firebase/database';
 
 export default function Materials() {
@@ -10,7 +10,6 @@ export default function Materials() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
     const quantityNum = parseInt(quantity, 10);
 
     if (isNaN(quantityNum)) {
@@ -23,11 +22,21 @@ export default function Materials() {
       return;
     }
 
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("You must be logged in to upload materials.");
+      return;
+    }
+
     const materialRef = ref(db, 'materials/');
+    console.log("Uploading material as seller:", user.uid);
+
     push(materialRef, {
       name,
-      quantity: quantityNum,  
+      quantity: quantityNum,
       description,
+      seller_id: user.uid, 
       timestamp: Date.now()
     })
       .then(() => {
@@ -38,7 +47,7 @@ export default function Materials() {
       })
       .catch((error) => {
         console.error("Error adding material:", error);
-        alert("Failed to add material."+ error.messgae);
+        alert(" Failed to add material. " + error.message);
       });
   };
 
@@ -61,8 +70,9 @@ export default function Materials() {
         value={description}
         onChange={e => setDescription(e.target.value)}
         placeholder="Description"
+        required
       />
       <button type="submit">Add Material</button>
-    </form>
-  );
+    </form>
+  );
 }

@@ -1,9 +1,13 @@
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import ChatBox from '../common/ChatBox';
+
 export default function DeliveryChat() {
-    return (
-      <div style={{ padding: '20px' }}>
-        <h2>Contact Buyer & Seller</h2>
-        <p>Use this area to communicate with assigned parties. Real-time messaging integration coming soon!</p>
-      </div>
-    );
-  }
-  
+  const { userId } = useParams();
+  return (
+    <div style={{ padding: '20px' }}>
+      <h2>Chat with User</h2>
+      <ChatBox otherUserId={userId} />
+    </div>
+  );
+}

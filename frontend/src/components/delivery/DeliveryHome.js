@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< Updated upstream
 import LogoutButton from '../auth/LogoutButton'; 
 
 const DeliveryHome = () => {
@@ -12,3 +13,15 @@ const DeliveryHome = () => {
 };
 
 export default DeliveryHome;
+=======
+import RecentConversations from '../common/RecentConversations';
+
+export default function DeliveryHome() {
+  return (
+    <div style={{ padding: '20px' }}>
+      <h2>Welcome, Delivery Agent </h2>
+      <RecentConversations userRole="delivery" />
+    </div>
+  );
+}
+>>>>>>> Stashed changes
