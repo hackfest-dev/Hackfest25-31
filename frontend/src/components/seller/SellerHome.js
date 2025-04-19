@@ -1,10 +1,14 @@
 import React from 'react';
+import LogoutButton from '../auth/LogoutButton'; 
 
-export default function SellerHome() {
+const SellerHome = () => {
   return (
     <div style={{ padding: '20px' }}>
-      <h1>👑 Welcome Seller!</h1>
-      <p>Track your materials, buyers, chats and shipments right here!</p>
+      <h1>Welcome Seller!</h1>
+      <p>Search and explore industrial materials, connect with buyers, and track your shipments.</p>
+      <LogoutButton />
     </div>
   );
-}
+};
+
+export default SellerHome;

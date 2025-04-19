@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import BuyerSignup from './components/auth/buyersignup';
-import BuyerLogin from './components/auth/buyerlogin';
+import BuyerSignup from './components/auth/BuyerSignup';
+import BuyerLogin from './components/auth/BuyerLogin';
 import SellerSignup from './components/auth/SellerSignup';
 import SellerLogin from './components/auth/SellerLogin';
 import DeliverySignup from './components/auth/DeliverySignup';
@@ -39,79 +39,91 @@ function App() {
         <Route path="/seller/login" element={<SellerLogin />} />
         <Route path="/delivery/login" element={<DeliveryLogin />} />
         <Route path="/delivery/signup" element={<DeliverySignup />} />
+        
         <Route path="/seller/dashboard" element={
-  <>
-    <SellerNav />
-    <SellerHome />
-  </>
-} />
-
-<Route path="/seller/materials" element={
-  <>
-    <SellerNav />
-    <Materials />
-  </>
-} />
-<Route path="/seller/chat" element={
-  <>
-    <SellerNav />
-    <Chat />
-  </>
-} />
-<Route path="/seller/tracking" element={
-  <>
-    <SellerNav />
-    <Tracking />
-  </>
-} />
-<Route path="/buyer/dashboard" element={
-  <>
-    <BuyerNav />
-    <BuyerHome />
-  </>
-} />
-<Route path="/buyer/search" element={
-  <>
-    <BuyerNav />
-    <MaterialSearch />
-  </>
-} />
-<Route path="/buyer/all-materials" element={
-  <>
-    <BuyerNav />
-    <AllMaterials />
-  </>
-} />
-<Route path="/buyer/tracking" element={
-  <>
-    <BuyerNav />
-    <BuyerTracking />
-  </>
-} />
-<Route path="/buyer/chat" element={
-  <>
-    <BuyerNav />
-    <BuyerChat />
-  </>
-} />
-<Route path="/delivery/dashboard" element={
-  <>
-    <DeliveryNav />
-    <DeliveryHome />
-  </>
-} />
-<Route path="/delivery/shipments" element={
-  <>
-    <DeliveryNav />
-    <DeliveryList />
-  </>
-} />
-<Route path="/delivery/chat" element={
-  <>
-    <DeliveryNav />
-    <DeliveryChat />
-  </>
-} />
+          <>
+            <SellerNav />
+            <SellerHome />
+          </>
+        } />
+        
+        <Route path="/seller/materials" element={
+          <>
+            <SellerNav />
+            <Materials />
+          </>
+        } />
+        
+        <Route path="/seller/chat" element={
+          <>
+            <SellerNav />
+            <Chat />
+          </>
+        } />
+        
+        <Route path="/seller/tracking" element={
+          <>
+            <SellerNav />
+            <Tracking />
+          </>
+        } />
+        
+        <Route path="/buyer/dashboard" element={
+          <>
+            <BuyerNav />
+            <BuyerHome />
+          </>
+        } />
+        
+        <Route path="/buyer/search" element={
+          <>
+            <BuyerNav />
+            <MaterialSearch />
+          </>
+        } />
+        
+        <Route path="/buyer/all-materials" element={
+          <>
+            <BuyerNav />
+            <AllMaterials />
+          </>
+        } />
+        
+        <Route path="/buyer/tracking" element={
+          <>
+            <BuyerNav />
+            <BuyerTracking />
+          </>
+        } />
+        
+        <Route path="/buyer/chat" element={
+          <>
+            <BuyerNav />
+            <BuyerChat />
+          </>
+        } />
+        
+        <Route path="/delivery/dashboard" element={
+          <>
+            <DeliveryNav />
+            <DeliveryHome />
+          </>
+        } />
+        
+        <Route path="/delivery/shipments" element={
+          <>
+            <DeliveryNav />
+            <DeliveryList />
+          </>
+        } />
+        
+        <Route path="/delivery/chat" element={
+          <>
+            <DeliveryNav />
+            <DeliveryChat />
+          </>
+        } />
+        
       </Routes>
     </Router>
   );
