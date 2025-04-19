@@ -1,5 +1,5 @@
 import AllMaterials from './AllMaterials';
-
+import './BuyerStyles.css'
 export default function BuyerDashboard() {
   return (
     <div>

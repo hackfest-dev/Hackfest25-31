@@ -1,3 +1,4 @@
+import './BuyerStyles.css'
 export default function BuyerTracking() {
     return (
       <div style={{ padding: '20px' }}>

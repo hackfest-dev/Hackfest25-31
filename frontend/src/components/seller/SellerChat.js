@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';  
 import ChatBox from '../common/ChatBox';
 import RecentConversations from '../common/RecentConversations';
-
+import './SellerStyles.css'
 export default function SellerChat() {
   const { buyerId } = useParams();
 

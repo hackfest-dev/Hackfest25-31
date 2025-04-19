@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
+import './BuyerStyles.css';
 
 export default function AllMaterials() {
   const [materials, setMaterials] = useState([]);
@@ -10,23 +11,22 @@ export default function AllMaterials() {
     onValue(matRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        // Convert object to an array of materials
         setMaterials(Object.values(data));
       } else {
-        setMaterials([]); // Set empty array if no data
+        setMaterials([]);
       }
     });
   }, []);
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>All Available Materials</h2>
+    <div className="material-section">
+      <h2 className="section-heading">All Available Materials</h2>
       {materials.length > 0 ? (
         materials.map((mat, idx) => (
-          <div key={idx}>
+          <div className="material-card" key={idx}>
             <h4>{mat.name}</h4>
             <p>{mat.description}</p>
-            <p>Quantity: {mat.quantity}</p>
+            <p><strong>Quantity:</strong> {mat.quantity}</p>
           </div>
         ))
       ) : (

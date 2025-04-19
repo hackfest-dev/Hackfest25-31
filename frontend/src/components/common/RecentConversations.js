@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-
+import './CommonStyles.css'
 export default function RecentConversations({ userRole }) {
   const [chatList, setChatList] = useState([]);
   const navigate = useNavigate();

@@ -1,3 +1,4 @@
+import './SellerStyles.css'
 export default function Tracking() {
     return (
       <div style={{ padding: '20px' }}>

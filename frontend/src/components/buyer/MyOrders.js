@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-
+import './BuyerStyles.css'
 export default function MyOrders() {
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();

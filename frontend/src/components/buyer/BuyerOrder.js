@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { collection, getDocs, addDoc } from 'firebase/firestore'; // Importing getDocs
-
+import './BuyerStyles.css'
 export default function BuyerOrder() {
   const [materials, setMaterials] = useState([]);
   const [selectedMaterialId, setSelectedMaterialId] = useState('');

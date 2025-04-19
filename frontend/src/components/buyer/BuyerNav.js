@@ -1,14 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import './BuyerStyles.css';
 
 export default function BuyerNav() {
+  const location = useLocation();
+
+  const navLinks = [
+    { to: '/buyer/dashboard', label: 'Home' },
+    { to: '/buyer/search', label: 'Search' },
+    { to: '/buyer/all-materials', label: 'Browse' },
+    { to: '/buyer/tracking', label: 'Tracking' },
+    { to: '/buyer/chat', label: 'Chat' }
+  ];
+
   return (
-    <nav style={{ display: 'flex', gap: '20px', padding: '10px', backgroundColor: '#e0f7fa' }}>
-      <Link to="/buyer/dashboard">Home</Link>
-      <Link to="/buyer/search">Search</Link>
-      <Link to="/buyer/all-materials">Browse</Link>
-      <Link to="/buyer/tracking">Tracking</Link>
-      <Link to="/buyer/chat">Chat</Link>
+    <nav className="buyer-horizontal-nav">
+      {navLinks.map((link) => (
+        <Link
+          key={link.to}
+          to={link.to}
+          className={`buyer-nav-link ${
+            location.pathname === link.to ? 'active' : ''
+          }`}
+        >
+          {link.label}
+        </Link>
+      ))}
     </nav>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, onValue, update, push } from 'firebase/database';
-
+import './SellerStyles.css'
 export default function SellerOrders() {
   const [orders, setOrders] = useState([]);
 

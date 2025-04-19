@@ -1,0 +1,192 @@
+:root {
+    --primary-blue: #4a90e2;
+    --primary-dark-blue: #357abd;
+    --secondary-blue: #2c6aa0;
+    --light-blue: #f0f8ff;
+    --lighter-blue: #f8faff;
+    --text-dark: #2c3e50;
+    --text-light: #ffffff;
+    --border-light: #e8f0fe;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-blue: rgba(74, 144, 226, 0.1);
+}
+
+/* Common Layout Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Common Card Styles */
+.card {
+    background: var(--text-light);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--shadow-blue);
+}
+
+/* Common Button Styles */
+.button {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark-blue));
+    color: var(--text-light);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, var(--primary-dark-blue), var(--secondary-blue));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--shadow-blue);
+}
+
+.button-outline {
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.button-outline:hover {
+    background: var(--lighter-blue);
+    color: var(--primary-dark-blue);
+    border-color: var(--primary-dark-blue);
+}
+
+/* Common Input Styles */
+.input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    background-color: var(--lighter-blue);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.input:focus {
+    border-color: var(--primary-blue);
+    background-color: var(--text-light);
+    box-shadow: 0 0 0 3px var(--shadow-blue);
+    outline: none;
+}
+
+/* Common Text Styles */
+.title {
+    color: var(--text-dark);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* Common Table Styles */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5rem 0;
+}
+
+.table th {
+    background-color: var(--lighter-blue);
+    color: var(--primary-blue);
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.table td {
+    padding: 1rem;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.table tr:hover {
+    background-color: var(--lighter-blue);
+}
+
+/* Common Animation Classes */
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-3px);
+}
+
+/* Common Badge Styles */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.badge-blue {
+    background-color: var(--lighter-blue);
+    color: var(--primary-blue);
+}
+
+.badge-success {
+    background-color: #e3fcef;
+    color: #0a8554;
+}
+
+.badge-warning {
+    background-color: #fff3e6;
+    color: #cc8033;
+}
+
+/* Common Loading Animation */
+.loading {
+    border: 3px solid var(--border-light);
+    border-radius: 50%;
+    border-top: 3px solid var(--primary-blue);
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

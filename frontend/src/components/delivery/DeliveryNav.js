@@ -1,12 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './DeliveryStyles.css';
 
 export default function DeliveryNav() {
   return (
-    <nav style={{ display: 'flex', gap: '20px', padding: '10px', backgroundColor: '#e0f7fa' }}>
-      <Link to="/delivery/dashboard">Home</Link>
-      <Link to="/delivery/shipments">Shipments</Link>
-      <Link to="/delivery/chat">Chat</Link>
+    <nav className="delivery-nav">
+      <ul className="nav-links">
+        <li>
+          <Link to="/delivery/dashboard">Home</Link>
+        </li>
+        <li>
+          <Link to="/delivery/shipments">Shipments</Link>
+        </li>
+        <li>
+          <Link to="/delivery/chat">Chat</Link>
+        </li>
+      </ul>
     </nav>
   );
 }

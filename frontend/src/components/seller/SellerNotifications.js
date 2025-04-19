@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
 import { onAuthStateChanged } from 'firebase/auth';
-
+import './SellerStyles.css'
 export default function SellerNotifications() {
   const [notifications, setNotifications] = useState([]);
   const [sellerUID, setSellerUID] = useState(null);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-
+import './BuyerStyles.css'
 export default function MaterialSearch() {
   const [query, setQuery] = useState('');
   const [materials, setMaterials] = useState([]);

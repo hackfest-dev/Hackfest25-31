@@ -4,7 +4,7 @@ import RecentConversations from '../common/RecentConversations';
 import LogoutButton from '../auth/LogoutButton';
 import { db, auth } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
-
+import './BuyerStyles.css'
 const BuyerHome = () => {
   const navigate = useNavigate();
   const [materials, setMaterials] = useState([]);

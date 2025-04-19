@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, onValue, push, update } from 'firebase/database';
-
+import './CommonStyles.css'
 export default function ChatBox({ otherUserId }) {
   const [messages, setMessages] = useState([]);
   const [newMsg, setNewMsg] = useState('');
@@ -68,7 +68,7 @@ export default function ChatBox({ otherUserId }) {
 
   return (
     <div style={{ border: '1px solid gray', padding: '10px', borderRadius: '8px' }}>
-      <h3>💬 Chat</h3>
+      
       <div
         style={{
           height: '250px',

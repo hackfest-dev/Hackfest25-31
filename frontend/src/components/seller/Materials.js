@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { db, auth } from '../../firebase'; 
 import { ref, push } from 'firebase/database';
+import './SellerStyles.css';
 
 export default function Materials() {
   const [name, setName] = useState('');
@@ -47,32 +48,38 @@ export default function Materials() {
       })
       .catch((error) => {
         console.error("Error adding material:", error);
-        alert(" Failed to add material. " + error.message);
+        alert("Failed to add material. " + error.message);
       });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Add New Material</h2>
-      <input
-        value={name}
-        onChange={e => setName(e.target.value)}
-        placeholder="Material Name"
-        required
-      />
-      <input
-        value={quantity}
-        onChange={e => setQuantity(e.target.value)}
-        placeholder="Quantity"
-        required
-      />
-      <textarea
-        value={description}
-        onChange={e => setDescription(e.target.value)}
-        placeholder="Description"
-        required
-      />
-      <button type="submit">Add Material</button>
-    </form>
+    <div className="material-form-container">
+      <form onSubmit={handleSubmit} className="material-form">
+        <h2>Add New Material</h2>
+
+        <input
+          value={name}
+          onChange={e => setName(e.target.value)}
+          placeholder="Material Name"
+          required
+          className="material-input"
+        />
+        <input
+          value={quantity}
+          onChange={e => setQuantity(e.target.value)}
+          placeholder="Quantity"
+          required
+          className="material-input"
+        />
+        <textarea
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+          placeholder="Description"
+          required
+          className="material-textarea"
+        />
+        <button type="submit" className="submit-button">Add Material</button>
+      </form>
+    </div>
   );
 }

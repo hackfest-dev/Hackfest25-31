@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db, auth } from '../../firebase';
 import { ref as dbRef, push, get } from 'firebase/database';
-
+import './BuyerStyles.css'
 const PlaceOrderPage = () => {
   const { materialId } = useParams();  
   const navigate = useNavigate();

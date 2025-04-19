@@ -9,8 +9,7 @@ import DeliverySignup from './components/auth/DeliverySignup';
 import DeliveryLogin from './components/auth/DeliveryLogin';
 
 import HomePage from './components/pages/HomePage';
-import Welcome from './components/pages/Welcome'; 
-
+import Welcome from './components/pages/Welcome';
 
 import SellerNav from './components/seller/SellerNav';
 import SellerHome from './components/seller/SellerHome';
@@ -32,106 +31,122 @@ import DeliveryChat from './components/delivery/DeliveryChat';
 
 import SellerOrders from './components/seller/SellerOrders';
 import PlaceOrderPage from './components/buyer/PlaceOrderPage';
+
+// Import CSS
+import './components/common/CommonStyles.css';
+import './components/auth/AuthForm.css';
+import './components/buyer/BuyerStyles.css';
+import './components/seller/SellerStyles.css';
+import './components/delivery/DeliveryStyles.css';
+import './components/pages/App.css';
+
 function App() {
   return (
     <Router>
-      <Routes>
-        {/* ✅ Welcome Page is now the landing page */}
-        <Route path="/" element={<Welcome />} />
-        {/* ✅ Login/Signup moved here */}
-        <Route path="/login" element={<HomePage />} />
+      <div className="app-container">
+        <Routes>
+          {/* Welcome Page is now the landing page */}
+          <Route path="/" element={<div className="page-container"><Welcome /></div>} />
+          {/* Login/Signup moved here */}
+          <Route path="/login" element={<div className="page-container"><HomePage /></div>} />
 
-        <Route path="/buyer/signup" element={<BuyerSignup />} />
-        <Route path="/buyer/login" element={<BuyerLogin />} />
-        <Route path="/seller/signup" element={<SellerSignup />} />
-        <Route path="/seller/login" element={<SellerLogin />} />
-        <Route path="/delivery/login" element={<DeliveryLogin />} />
-        <Route path="/delivery/signup" element={<DeliverySignup />} />
+          {/* Auth Routes */}
+          <Route path="/buyer/signup" element={<div className="page-container"><BuyerSignup /></div>} />
+          <Route path="/buyer/login" element={<div className="page-container"><BuyerLogin /></div>} />
+          <Route path="/seller/signup" element={<div className="page-container"><SellerSignup /></div>} />
+          <Route path="/seller/login" element={<div className="page-container"><SellerLogin /></div>} />
+          <Route path="/delivery/login" element={<div className="page-container"><DeliveryLogin /></div>} />
+          <Route path="/delivery/signup" element={<div className="page-container"><DeliverySignup /></div>} />
 
-        <Route path="/buyer/chat/:sellerId" element={<BuyerChat />} />
-        <Route path="/seller/chat/:buyerId" element={<SellerChat />} />
-        <Route path="/delivery/chat/:userId" element={<DeliveryChat />} />
-        <Route path="/buyer/place-order/:materialId" element={<PlaceOrderPage />} />
-        <Route path="/delivery/dashboard" element={<DeliveryHome />} />
-        <Route path="/seller/orders" element={<SellerOrders />} />
+          {/* Chat and Order Routes */}
+          <Route path="/buyer/chat/:sellerId" element={<div className="page-container"><BuyerChat /></div>} />
+          <Route path="/seller/chat/:buyerId" element={<div className="page-container"><SellerChat /></div>} />
+          <Route path="/delivery/chat/:userId" element={<div className="page-container"><DeliveryChat /></div>} />
+          <Route path="/buyer/place-order/:materialId" element={<div className="page-container"><PlaceOrderPage /></div>} />
+          <Route path="/delivery/dashboard" element={<div className="page-container delivery-dashboard"><DeliveryNav /><DeliveryHome /></div>} />
+          <Route path="/seller/orders" element={<div className="page-container seller-dashboard"><SellerNav /><SellerOrders /></div>} />
 
-        <Route path="/seller/dashboard" element={
-          <>
-            <SellerNav />
-            <SellerHome />
-          </>
-        } />
-        <Route path="/seller/materials" element={
-          <>
-            <SellerNav />
-            <Materials />
-          </>
-        } />
-        <Route path="/seller/chat" element={
-          <>
-            <SellerNav />
-            <SellerChat />
-          </>
-        } />
-        <Route path="/seller/tracking" element={
-          <>
-            <SellerNav />
-            <Tracking />
-          </>
-        } />
-        <Route path="/buyer/dashboard" element={
-          <>
-            <BuyerNav />
-            <BuyerHome />
-          </>
-        } />
-        <Route path="/buyer/search" element={
-          <>
-            <BuyerNav />
-            <MaterialSearch />
-          </>
-        } />
-        <Route path="/buyer/all-materials" element={
-          <>
-            <BuyerNav />
-            <AllMaterials />
-          </>
-        } />
-        <Route path="/buyer/tracking" element={
-          <>
-            <BuyerNav />
-            <BuyerTracking />
-          </>
-        } />
-        <Route path="/buyer/chat" element={
-          <>
-            <BuyerNav />
-            <BuyerChat />
-          </>
-        } />
-        <Route path="/delivery/dashboard" element={
-          <>
-            <DeliveryNav />
-            <DeliveryHome />
-          </>
-        } />
-       <Route path="/delivery/chat" element={
-  <>
-    <DeliveryNav />
-    <DeliveryChat />
-  </>
-} />
+          {/* Seller Routes */}
+          <Route path="/seller/dashboard" element={
+            <div className="page-container seller-dashboard">
+              <SellerNav />
+              <SellerHome />
+            </div>
+          } />
+          <Route path="/seller/materials" element={
+            <div className="page-container seller-dashboard">
+              <SellerNav />
+              <Materials />
+            </div>
+          } />
+          <Route path="/seller/chat" element={
+            <div className="page-container seller-dashboard">
+              <SellerNav />
+              <SellerChat />
+            </div>
+          } />
+          <Route path="/seller/tracking" element={
+            <div className="page-container seller-dashboard">
+              <SellerNav />
+              <Tracking />
+            </div>
+          } />
 
-{/* ✅ Welcome page is the landing route */}
-<Route path="/" element={<Welcome />} />
+          {/* Buyer Routes */}
+          <Route path="/buyer/dashboard" element={
+            <div className="page-container buyer-dashboard">
+              <BuyerNav />
+              <BuyerHome />
+            </div>
+          } />
+          <Route path="/buyer/search" element={
+            <div className="page-container buyer-dashboard">
+              <BuyerNav />
+              <MaterialSearch />
+            </div>
+          } />
+          <Route path="/buyer/all-materials" element={
+            <div className="page-container buyer-dashboard">
+              <BuyerNav />
+              <AllMaterials />
+            </div>
+          } />
+          <Route path="/buyer/tracking" element={
+            <div className="page-container buyer-dashboard">
+              <BuyerNav />
+              <BuyerTracking />
+            </div>
+          } />
+          <Route path="/buyer/chat" element={
+            <div className="page-container buyer-dashboard">
+              <BuyerNav />
+              <BuyerChat />
+            </div>
+          } />
 
-{/* ✅ Login page route */}
-<Route path="/login" element={<HomePage />} />
-
-      </Routes>
+          {/* Delivery Routes */}
+          <Route path="/delivery/list" element={
+            <div className="page-container delivery-dashboard">
+              <DeliveryNav />
+              <DeliveryList />
+            </div>
+          } />
+          <Route path="/delivery/dashboard" element={
+            <div className="page-container delivery-dashboard">
+              <DeliveryNav />
+              <DeliveryHome />
+            </div>
+          } />
+          <Route path="/delivery/chat" element={
+            <div className="page-container delivery-dashboard">
+              <DeliveryNav />
+              <DeliveryChat />
+            </div>
+          } />
+        </Routes>
+      </div>
     </Router>
   );
 }
 
 export default App;
-

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ChatBox from '../common/ChatBox';
-
+import './DeliveryStyles.css'
 export default function DeliveryChat() {
   const { userId } = useParams();
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, onValue, update } from 'firebase/database';
-
+import './DeliveryStyles.css'
 export default function DeliveryList() {
   const [deliveries, setDeliveries] = useState([]);
 

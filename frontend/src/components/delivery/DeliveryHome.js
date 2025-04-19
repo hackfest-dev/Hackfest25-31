@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
-import DeliveryNav from './DeliveryNav'; 
-import RecentConversations from '../common/RecentConversations'; 
+import './DeliveryStyles.css';
 
 const DeliveryHome = () => {
   const [assignedDeliveries, setAssignedDeliveries] = useState([]);
@@ -20,29 +19,23 @@ const DeliveryHome = () => {
   }, []);
 
   return (
-    <div>
-      {/*  NAVIGATION BAR INCLUDED HERE */}
-      <DeliveryNav />
+    <div className="delivery-home-container">
+      <h2 className="welcome-heading">Welcome, Delivery Agent</h2>
 
-      <div style={{ padding: '20px' }}>
-        <h2>Welcome, Delivery Agent</h2>
-
-        <div style={{ margin: '20px 0' }}>
-          <h3>Assigned Deliveries</h3>
-          {assignedDeliveries.length === 0 ? (
-            <p>No deliveries assigned yet!</p>
-          ) : (
-            assignedDeliveries.map((delivery) => (
-              <div key={delivery.id} style={{ border: '1px solid gray', padding: '10px', margin: '10px 0' }}>
-                <h4>Material: {delivery.material_name}</h4>
-                <p>Quantity: {delivery.quantity}</p>
-                <p>Status: {delivery.status}</p>
-              </div>
-            ))
-          )}
-        </div>
-
-        <RecentConversations userRole="delivery" />
+      {/* Assigned Deliveries */}
+      <div className="assigned-deliveries-container">
+        <h3 className="section-heading">Assigned Deliveries</h3>
+        {assignedDeliveries.length === 0 ? (
+          <p className="no-deliveries">No deliveries assigned yet!</p>
+        ) : (
+          assignedDeliveries.map((delivery) => (
+            <div key={delivery.id} className="delivery-card">
+              <h4 className="delivery-title">Material: {delivery.material_name}</h4>
+              <p className="delivery-info">Quantity: {delivery.quantity}</p>
+              <p className="delivery-info">Status: {delivery.status}</p>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

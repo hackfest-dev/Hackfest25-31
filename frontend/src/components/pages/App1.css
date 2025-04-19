@@ -1,82 +1,111 @@
-/* App1.css */
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #e6f2ff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .welcome-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #e6f2ff;
-  }
-  
-  .welcome-header {
-    background-color: #cce6ff;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #005fa3;
-  }
-  
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .login-button {
-    background-color: #007acc;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-button:hover {
-    background-color: #005fa3;
-  }
-  
-  .about-dropdown summary {
-    cursor: pointer;
-    font-weight: bold;
-    color: #005fa3;
-  }
-  
-  .about-dropdown p {
-    margin: 10px 0 0;
-    padding: 10px;
-    background-color: #f0f8ff;
-    border-radius: 8px;
-    width: 250px;
-  }
-  
-  .welcome-main {
-    text-align: center;
-    padding: 80px 20px;
-    color: #004080;
-  }
-  
-  .welcome-main h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
-  }
-  
-  .welcome-main p {
-    font-size: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
+  margin: 0;
+  padding: 0;
+  background: url(../pages/back.png) no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.welcome-container {
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-header {
+  background-color: rgba(204, 230, 255, 0.6); /* Translucent */
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.welcome-header:hover {
+  background-color: rgba(204, 230, 255, 1); /* Opaque on hover */
+  backdrop-filter: blur(0); /* Optional: remove blur */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #005fa3;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.login-button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #16759f;
+}
+
+.about-dropdown {
+  position: relative;
+}
+
+.about-dropdown summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #005fa3;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+.about-dropdown p {
+  margin: 0;
+  padding: 10px;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  width: 250px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 10;
+  display: none;
+}
+
+.about-dropdown[open] p {
+  display: block;
+}
+
+.welcome-main {
+  text-align: center;
+  padding: 100px 20px 60px;
+  color: #004080;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.welcome-main h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.welcome-main p {
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}

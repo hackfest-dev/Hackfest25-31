@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';  // Import useParams to get dynamic route params
 import ChatBox from '../common/ChatBox';
-
+import './BuyerStyles.css'
 export default function BuyerChat() {
   const { sellerId } = useParams();  // Get sellerId from URL parameter
 
