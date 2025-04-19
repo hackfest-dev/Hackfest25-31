@@ -26,13 +26,13 @@ export default function DeliveryList() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2>📦 Shipment Requests</h2>
+      <h2> Shipment Requests</h2>
       {deliveries.map((item, idx) => (
         <div key={idx} style={{ border: '1px solid gray', padding: '10px', margin: '10px 0' }}>
           <h4>{item.material_name}</h4>
           <p>Status: {item.status}</p>
 
-          {item.status === 'pending' && (
+          {item.status === 'pending' && (  
             <>
               <button onClick={() => handleStatusChange(item.id, 'accepted')}>Accept</button>
               <button onClick={() => handleStatusChange(item.id, 'rejected')}>Reject</button>

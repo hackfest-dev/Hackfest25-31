@@ -7,6 +7,7 @@ export default function SellerNav() {
       <Link to="/seller/dashboard">Main Menu</Link>
       <Link to="/seller/materials">Materials</Link>
       <Link to="/seller/chat">Chat</Link>
+      <Link to="/seller/orders">My Orders</Link>
       <Link to="/seller/tracking">Tracking</Link>
     </nav>
   );

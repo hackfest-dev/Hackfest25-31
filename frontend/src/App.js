@@ -28,6 +28,8 @@ import DeliveryHome from './components/delivery/DeliveryHome';
 import DeliveryList from './components/delivery/DeliveryList';
 import DeliveryChat from './components/delivery/DeliveryChat';
 
+import SellerOrders from './components/seller/SellerOrders';
+import PlaceOrderPage from './components/buyer/PlaceOrderPage';
 function App() {
   return (
     <Router>
@@ -43,6 +45,9 @@ function App() {
         <Route path="/buyer/chat/:sellerId" element={<BuyerChat />} />
         <Route path="/seller/chat/:buyerId" element={<SellerChat />} />
         <Route path="/delivery/chat/:userId" element={<DeliveryChat />} />
+        <Route path="/buyer/place-order/:materialId" element={<PlaceOrderPage />} />
+        <Route path="/delivery/dashboard" element={<DeliveryHome />} />
+        <Route path="/seller/orders" element={<SellerOrders />} />
 
         <Route path="/seller/dashboard" element={
           <>

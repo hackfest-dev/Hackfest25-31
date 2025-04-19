@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { db } from '../../firebase';
-import { ref, onValue, update } from 'firebase/database';
+import { db, auth } from '../../firebase';
+import { ref, onValue, update, push } from 'firebase/database';
 
 export default function SellerOrders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const ordersRef = ref(db, 'orders/');
+    const ordersRef = ref(db, 'deliveries'); // use 'deliveries' as per your order placing logic
+
     onValue(ordersRef, (snapshot) => {
       const data = snapshot.val();
       const sellerOrders = [];
 
       for (let key in data) {
-        if (data[key].sellerId === auth.currentUser.uid) {
+        if (data[key].seller_id === auth.currentUser.uid) {
           sellerOrders.push({ ...data[key], orderId: key });
         }
       }
@@ -22,39 +23,41 @@ export default function SellerOrders() {
   }, []);
 
   const handleOrderStatusChange = (orderId, status) => {
-    const orderRef = ref(db, `orders/${orderId}`);
+    const orderRef = ref(db, `deliveries/${orderId}`);
     update(orderRef, { status })
       .then(() => {
         if (status === 'accepted') {
-          // Notify the delivery personnel (you can create a notification system for them too)
-          const deliveryNotificationRef = ref(db, `notifications/delivery`);
+          // Notify the delivery personnel (you can filter or assign later)
+          const deliveryNotificationRef = ref(db, 'notifications/delivery');
           push(deliveryNotificationRef, {
-            message: `A new order for delivery is ready for pickup.`,
-            orderId: orderId,
+            message: `A new order is ready for pickup.`,
+            orderId,
             timestamp: Date.now(),
           });
         }
       })
       .catch((err) => {
-        console.error("Error changing order status:", err);
+        console.error('Error changing order status:', err);
       });
   };
 
   return (
-    <div>
+    <div style={{ padding: '20px' }}>
       <h2>Your Orders</h2>
       {orders.length > 0 ? (
         orders.map((order) => (
-          <div key={order.orderId} style={{ marginBottom: '20px' }}>
-            <h4>Material: {order.materialName}</h4>
+          <div key={order.orderId} style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ccc', borderRadius: '8px' }}>
+            <h4>Material: {order.material_name}</h4>
             <p>Quantity: {order.quantity}</p>
-            <p>Status: {order.status}</p>
-            <button onClick={() => handleOrderStatusChange(order.orderId, 'accepted')}>Accept Order</button>
-            <button onClick={() => handleOrderStatusChange(order.orderId, 'rejected')}>Reject Order</button>
+            <p>Status: <strong>{order.status}</strong></p>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <button onClick={() => handleOrderStatusChange(order.orderId, 'accepted')}>Accept</button>
+              <button onClick={() => handleOrderStatusChange(order.orderId, 'rejected')}>Reject</button>
+            </div>
           </div>
         ))
       ) : (
-        <p>No orders placed yet.</p>
+        <p>No orders received yet.</p>
       )}
     </div>
   );
