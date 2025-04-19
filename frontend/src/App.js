@@ -31,6 +31,7 @@ import DeliveryChat from './components/delivery/DeliveryChat';
 
 import SellerOrders from './components/seller/SellerOrders';
 import PlaceOrderPage from './components/buyer/PlaceOrderPage';
+import BuyerOrder from './components/buyer/BuyerOrder';
 
 // Import CSS
 import './components/common/CommonStyles.css';
@@ -57,6 +58,7 @@ function App() {
           <Route path="/seller/login" element={<div className="page-container"><SellerLogin /></div>} />
           <Route path="/delivery/login" element={<div className="page-container"><DeliveryLogin /></div>} />
           <Route path="/delivery/signup" element={<div className="page-container"><DeliverySignup /></div>} />
+          <Route path="/buyer/orders" element={<BuyerOrder />} /> 
 
           {/* Chat and Order Routes */}
           <Route path="/buyer/chat/:sellerId" element={<div className="page-container"><BuyerChat /></div>} />

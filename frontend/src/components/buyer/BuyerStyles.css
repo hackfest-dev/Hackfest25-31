@@ -410,4 +410,91 @@
     margin-top: 2rem;
     font-weight: 500;
   }
+  .place-order-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f9fbfd;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .place-order-title {
+    font-size: 24px;
+    text-align: center;
+    color: #004080;
+    margin-bottom: 25px;
+  }
+  
+  .material-details {
+    margin-top: 20px;
+  }
+  
+  .material-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .material-description {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .material-info {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  
+  .quantity-label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #003366;
+  }
+  
+  .quantity-input {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .order-button-container {
+    text-align: center;
+    margin-top: 25px;
+  }
+  
+  .place-order-button {
+    background-color: #004080;
+    color: white;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .place-order-button:hover {
+    background-color: #002f5d;
+  }
+  
+  .error-text {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .loading-text {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+  }
   

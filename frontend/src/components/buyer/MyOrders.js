@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { db, auth } from '../../firebase';
 import { ref, onValue } from 'firebase/database';
 import { useNavigate } from 'react-router-dom';
-import './BuyerStyles.css'
+import './BuyerStyles.css';
+
 export default function MyOrders() {
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export default function MyOrders() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2>📦 My Orders (Buyer)</h2>
+      <h2> My Orders (Buyer)</h2>
       {orders.map((order, idx) => (
         <div key={idx} style={{ border: '1px solid #aaa', margin: '10px 0', padding: '10px' }}>
           <p><b>Material:</b> {order.material_name}</p>

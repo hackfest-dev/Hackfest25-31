@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db, auth } from '../../firebase';
 import { ref as dbRef, push, get } from 'firebase/database';
-import './BuyerStyles.css'
+import './BuyerStyles.css';
+
 const PlaceOrderPage = () => {
   const { materialId } = useParams();  
   const navigate = useNavigate();
@@ -34,14 +35,20 @@ const PlaceOrderPage = () => {
       setError('Please select a valid quantity.');
       return;
     }
-
+  
     if (!auth.currentUser) {
       setError('User not logged in.');
       return;
     }
-
+  
+    console.log("Material object:", material); // ⬅️ ADD THIS
+    if (!material || !material.seller_id) {
+      setError('Seller information is missing.');
+      return;
+    }
+  
     const orderRef = dbRef(db, 'deliveries');
-
+  
     const orderData = {
       buyer_id: auth.currentUser.uid,
       seller_id: material.seller_id,
@@ -52,7 +59,7 @@ const PlaceOrderPage = () => {
       delivery_id: null,
       timestamp: Date.now(),
     };
-
+  
     push(orderRef, orderData)
       .then(() => {
         alert('Order placed successfully!');
@@ -63,24 +70,26 @@ const PlaceOrderPage = () => {
         setError('Error placing the order. Please try again.');
       });
   };
+  
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Place Order for Material</h2>
+    <div className="place-order-container">
+      <h2 className="place-order-title">Place Order for Material</h2>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
 
       {material ? (
-        <div>
-          <h3>{material.name}</h3>
-          <p>{material.description}</p>
-          <p>Price: {material.price}</p>
-          <p>Available Quantity: {material.quantity}</p>
+        <div className="material-details">
+          <h3 className="material-name">{material.name}</h3>
+          <p className="material-description">{material.description}</p>
+          <p className="material-price">Price: <strong>{material.price}</strong></p>
+          <p className="material-quantity">Available Quantity: <strong>{material.quantity}</strong></p>
 
-          <label>
+          <label className="quantity-label">
             Quantity:
             <input
               type="number"
+              className="quantity-input"
               value={quantity}
               onChange={(e) => setQuantity(Number(e.target.value))}
               min="1"
@@ -88,12 +97,12 @@ const PlaceOrderPage = () => {
             />
           </label>
 
-          <div style={{ marginTop: '20px' }}>
-            <button onClick={handleOrder}>Place Order</button>
+          <div className="order-button-container">
+            <button className="place-order-button" onClick={handleOrder}>Place Order</button>
           </div>
         </div>
       ) : (
-        <p>Loading material details...</p>
+        <p className="loading-message">Loading material details...</p>
       )}
     </div>
   );
