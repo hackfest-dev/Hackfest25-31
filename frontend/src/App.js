@@ -39,140 +39,83 @@ function App() {
         <Route path="/seller/login" element={<SellerLogin />} />
         <Route path="/delivery/login" element={<DeliveryLogin />} />
         <Route path="/delivery/signup" element={<DeliverySignup />} />
-<<<<<<< Updated upstream
-        
-=======
 
         <Route path="/buyer/chat/:sellerId" element={<BuyerChat />} />
         <Route path="/seller/chat/:buyerId" element={<SellerChat />} />
         <Route path="/delivery/chat/:userId" element={<DeliveryChat />} />
 
->>>>>>> Stashed changes
         <Route path="/seller/dashboard" element={
           <>
             <SellerNav />
             <SellerHome />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
         <Route path="/seller/materials" element={
           <>
             <SellerNav />
             <Materials />
           </>
         } />
-<<<<<<< Updated upstream
-        
-        <Route path="/seller/chat" element={
-          <>
-            <SellerNav />
-            <Chat />
-          </>
-        } />
-        
-=======
         <Route path="/seller/chat" element={
           <>
             <SellerNav />
             <SellerChat />
           </>
         } />
->>>>>>> Stashed changes
         <Route path="/seller/tracking" element={
           <>
             <SellerNav />
             <Tracking />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
-
->>>>>>> Stashed changes
         <Route path="/buyer/dashboard" element={
           <>
             <BuyerNav />
             <BuyerHome />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
         <Route path="/buyer/search" element={
           <>
             <BuyerNav />
             <MaterialSearch />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
         <Route path="/buyer/all-materials" element={
           <>
             <BuyerNav />
             <AllMaterials />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
         <Route path="/buyer/tracking" element={
           <>
             <BuyerNav />
             <BuyerTracking />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
         <Route path="/buyer/chat" element={
           <>
             <BuyerNav />
             <BuyerChat />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
-
->>>>>>> Stashed changes
         <Route path="/delivery/dashboard" element={
           <>
             <DeliveryNav />
             <DeliveryHome />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
         <Route path="/delivery/shipments" element={
           <>
             <DeliveryNav />
             <DeliveryList />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
         <Route path="/delivery/chat" element={
           <>
             <DeliveryNav />
             <DeliveryChat />
           </>
         } />
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
       </Routes>
     </Router>
   );
