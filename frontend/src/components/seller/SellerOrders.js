@@ -24,22 +24,26 @@ export default function SellerOrders() {
 
   const handleOrderStatusChange = (orderId, status) => {
     const orderRef = ref(db, `deliveries/${orderId}`);
-    update(orderRef, { status })
-      .then(() => {
-        if (status === 'accepted') {
-          // Notify the delivery personnel (you can filter or assign later)
-          const deliveryNotificationRef = ref(db, 'notifications/delivery');
-          push(deliveryNotificationRef, {
-            message: `A new order is ready for pickup.`,
-            orderId,
-            timestamp: Date.now(),
-          });
-        }
-      })
-      .catch((err) => {
-        console.error('Error changing order status:', err);
+    const updates = { status };
+  
+    if (status === 'accepted') {
+      const deliveryAgentUID = 'r3uWifAbUPMCnJk8xWXdw2DdbU13'; // ✅ Your delivery agent's UID
+      updates.delivery_id = deliveryAgentUID;
+  
+      const deliveryNotificationRef = ref(db, 'notifications/delivery');
+      push(deliveryNotificationRef, {
+        message: `A new order is ready for pickup.`,
+        orderId,
+        delivery_id: deliveryAgentUID,
+        timestamp: Date.now(),
       });
+    }
+  
+    update(orderRef, updates)
+      .then(() => console.log('Order updated successfully'))
+      .catch((err) => console.error('Error changing order status:', err));
   };
+  
 
   return (
     <div style={{ padding: '20px' }}>

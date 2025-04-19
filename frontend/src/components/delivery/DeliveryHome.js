@@ -33,6 +33,7 @@ const DeliveryHome = () => {
               <h4 className="delivery-title">Material: {delivery.material_name}</h4>
               <p className="delivery-info">Quantity: {delivery.quantity}</p>
               <p className="delivery-info">Status: {delivery.status}</p>
+              <p className="delivery-info">Delivery ID: {delivery.delivery_id}</p>
             </div>
           ))
         )}
