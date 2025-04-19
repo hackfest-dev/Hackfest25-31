@@ -3,7 +3,9 @@
 .welcome-container {
   min-height: 95vh;
   display: flex;
+  background: url('./back.png') no-repeat center center;
   flex-direction: column;
+  background-size: cover;
 }
 
 .welcome-header {

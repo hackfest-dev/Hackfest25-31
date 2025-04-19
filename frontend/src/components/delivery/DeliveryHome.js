@@ -20,20 +20,41 @@ const DeliveryHome = () => {
 
   const handleStatusChange = (deliveryId, newStatus) => {
     const deliveryRef = ref(db, `deliveries/${deliveryId}`);
-    update(deliveryRef, { status: newStatus })
+    update(deliveryRef, {
+      status: newStatus,
+      last_updated: Date.now(),
+    })
       .then(() => {
-        console.log('Status updated');
+        console.log('Status updated to', newStatus);
       })
       .catch((err) => {
         console.error('Error updating status:', err);
       });
   };
 
+  const formatTimestamp = (timestamp) => {
+    if (!timestamp) return 'N/A';
+    const date = new Date(timestamp);
+    return date.toLocaleString();
+  };
+
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'delivered':
+        return '#d4edda'; // Green
+      case 'in transit':
+        return '#fff3cd'; // Yellow
+      case 'failed':
+        return '#f8d7da'; // Red
+      default:
+        return '#f1f1f1'; // Neutral gray for pending
+    }
+  };
+
   return (
     <div className="delivery-home-container">
       <h2 className="welcome-heading">Welcome, Delivery Agent</h2>
 
-      {/* Assigned Deliveries */}
       <div className="assigned-deliveries-container">
         <h3 className="section-heading">Assigned Deliveries</h3>
         {assignedDeliveries.length === 0 ? (
@@ -44,7 +65,7 @@ const DeliveryHome = () => {
               key={delivery.id}
               className="delivery-card"
               style={{
-                backgroundColor: delivery.status === 'delivered' ? '#d4edda' : '#f8d7da',
+                backgroundColor: getStatusColor(delivery.status),
                 border: '1px solid #ccc',
                 borderRadius: '8px',
                 padding: '12px',
@@ -54,17 +75,18 @@ const DeliveryHome = () => {
               <h4 className="delivery-title">Material: {delivery.material_name}</h4>
               <p className="delivery-info">Quantity: {delivery.quantity}</p>
               <p className="delivery-info">Status: <strong>{delivery.status}</strong></p>
+              <p className="delivery-info">Last Updated: {formatTimestamp(delivery.last_updated)}</p>
 
-              <div style={{ display: 'flex', gap: '10px' }}>
-                {delivery.status !== 'delivered' && (
-                  <button onClick={() => handleStatusChange(delivery.id, 'delivered')}>
-                    Mark as Delivered
-                  </button>
-                )}
-                <button onClick={() => handleStatusChange(delivery.id, 'in transit')}>
-                  In Transit
-                </button>
-              </div>
+              <select
+                value={delivery.status}
+                onChange={(e) => handleStatusChange(delivery.id, e.target.value)}
+                style={{ padding: '5px', marginTop: '10px' }}
+              >
+                <option value="pending">Pending</option>
+                <option value="in transit">In Transit</option>
+                <option value="delivered">Delivered</option>
+                <option value="failed">Failed</option>
+              </select>
             </div>
           ))
         )}

@@ -2,91 +2,148 @@
 .homepage-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background: #b3d9ff; /* Soft gradient for background */
+  background: url('./back.png') no-repeat center center;
+  background-size: cover;
   padding: 60px 20px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #003366; /* Dark blue text */
+  color: #003366;
   min-height: 100vh;
   line-height: 1.6;
   box-sizing: border-box;
+  animation: fadeIn 2s ease-out;
 }
 
 /* Title Styling */
 .title {
-  font-size: 3em; /* Slightly smaller for an elegant feel */
-  color: #004080; /* Soft blue for the title */
-  margin-bottom: 50px;
-  font-weight: 550;
+  font-size: 3.5em;
+  color: #003366;
+  margin-bottom: 40px;
+  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for title */
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+  animation: slideIn 1s ease-out;
+}
+
+/* Animation for Title */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Card Container */
 .card-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1000px;
-  padding: 10px;
+  max-width: 1100px;
+  padding: 20px;
+  animation: fadeInUp 1.5s ease-out;
 }
 
 /* Card Styling */
 .card {
-  background-color: #b3d9ff; /* Light blue for cards */
-  border-radius: 12px;
-  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
   text-align: center;
+  width: 280px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  border: 1px solid #cce6ff;
   transition: all 0.3s ease-in-out;
-  width: 240px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-  border: 1px solid #99c2ff; /* Soft border */
+  animation: cardFadeIn 1.5s ease-out;
 }
 
+/* Animation for Cards */
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Card Hover Effect */
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3); /* More depth and boldness on hover */
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  animation: cardHover 0.3s ease-in-out;
+}
+
+/* Animation for Hovered Cards */
+@keyframes cardHover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 /* Card Heading */
 .card h2 {
-  font-size: 1.8em;
-  color: #003366; /* Dark blue for card headings */
+  font-size: 2.2em;
+  color: #003366;
   margin-bottom: 20px;
-  font-weight: 600;
-  text-transform: uppercase; /* Makes it more elegant */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Button Styling */
 .button {
   display: inline-block;
-  padding: 5px 30px;
-  background-color: #99c2ff; /* Light blue for buttons */
+  padding: 12px 35px;
+  background-color: #66b3ff;
   color: #003366;
-  font-size: 1em;
+  font-size: 1.2em;
   border-radius: 30px;
   text-decoration: none;
-  margin: 12px 0;
+  margin-top: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: background-color 0.3s, transform 0.3s ease-in-out;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  animation: pulse 1.5s infinite;
+}
+
+/* Pulse Animation for Button */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .button:hover {
-  background-color: #cce6ff; /* Slightly lighter blue for hover */
-  transform: scale(1.05);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  background-color: #99c2ff;
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .button:active {
-  transform: scale(1); /* Reset scale on click */
+  transform: scale(1);
 }
 
 /* Auth Form Styling */
@@ -96,97 +153,104 @@
   justify-content: center;
   align-items: center;
   min-height: 90vh;
-  background: linear-gradient(135deg, #e6f7ff, #99c2ff); /* Soft gradient background */
-  color: #003366; /* Dark blue text */
+  background: linear-gradient(135deg, #e6f7ff, #99c2ff);
+  color: #003366;
   font-family: 'Segoe UI', sans-serif;
-  padding: 20px;
+  padding: 30px;
+  animation: fadeIn 2s ease-out;
 }
 
+/* Auth Form Animation */
 .auth-form {
-  background-color: #b3e0ff; /* Light blue for the form */
+  background-color: #ffffff;
   padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
+  animation: formSlideIn 1.5s ease-out;
 }
 
+/* Form Slide In Animation */
+@keyframes formSlideIn {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover Effects on Form */
 .auth-form:hover {
-  transform: scale(1.02); /* Slight zoom effect on hover */
+  transform: scale(1.03);
 }
 
 .auth-form h2 {
   margin-bottom: 24px;
-  font-size: 1.8em;
+  font-size: 2.2em;
   text-align: center;
-  color: #003366; /* Dark blue for form heading */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
-}
-
-.auth-form input {
-  margin-bottom: 16px;
-  padding: 12px 15px;
-  font-size: 1em;
-  border: none;
-  border-radius: 8px;
-  background-color: #ffffff; /* White for input fields */
   color: #003366;
-  outline: none;
-  transition: background-color 0.3s, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.auth-form input:focus {
-  background-color: #e6f7ff; /* Lighter blue background when focused */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
+/* Button Hover Effects */
 .auth-form button {
-  padding: 12px 20px;
-  background: #66b3ff; /* Blue gradient for button */
-  color: #fff;
-  font-size: 1em;
+  padding: 14px 22px;
+  background: #66b3ff;
+  color: #ffffff;
+  font-size: 1.2em;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  margin-top: 8px;
+  margin-top: 20px;
   transition: background 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
 .auth-form button:hover {
-  background: #66b3ff; /* Reversed gradient on hover */
-  transform: scale(1.05); /* Smooth scaling on hover */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  background: #66b3ff;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .auth-form button:active {
-  transform: scale(1); /* Reset scale on click */
+  transform: scale(1);
 }
 
-.auth-error {
-  color: #ff6b6b; /* Red for error messages */
-  text-align: center;
-  margin-top: 10px;
-  font-size: 0.95em;
-}
 /* Buyer-Seller-Delivery Layout */
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
-  padding: 20px;
-  margin-top: 30px;
+  padding: 30px;
+  margin-top: 40px;
+  animation: buttonGroupFadeIn 2s ease-out;
+}
+
+/* Fade In Animation for Button Group */
+@keyframes buttonGroupFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .button-group .button {
-  padding: 12px 30px;
-  font-size: 1em;
+  padding: 14px 40px;
+  font-size: 1.2em;
   border-radius: 25px;
   text-decoration: none;
   text-transform: uppercase;
@@ -195,27 +259,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  animation: buttonHoverEffect 1.5s ease-out infinite;
 }
 
-.button-group .buyer-button {
-  background-color: #66cc66; /* Green for buyer */
-  color: #ffffff;
+/* Button Hover Effect Animation */
+@keyframes buttonHoverEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.button-group .seller-button {
-  background-color: #ff9900; /* Orange for seller */
-  color: #ffffff;
-}
-
-.button-group .delivery-button {
-  background-color: #3399ff; /* Blue for delivery */
-  color: #ffffff;
-}
-
-/* Hover Effects */
+/* Button Hover Effects */
 .button-group .button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Active Effects */
@@ -225,7 +288,6 @@
 
 /* Button Icon (Optional for Buyer, Seller, Delivery) */
 .button-group .button i {
-  margin-right: 8px; /* Adds spacing between the icon and text */
-  font-size: 1.2em;
+  margin-right: 8px;
+  font-size: 1.4em;
 }
-
